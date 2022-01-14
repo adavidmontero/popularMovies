@@ -1,65 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import Movies from './components/Movies';
+import NavBar from './components/NavBar';
 import Pagination from './components/Pagination';
-import Modal from './components/Modal';
+import './App.css';
 
 function App() {
 
+  const queryString = window.location.search;
+
+  const urlParams = new URLSearchParams(queryString);
+
+  const currentPage = urlParams.get('page');
+
   //Creamos los estados
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(parseInt(currentPage) || 1);
   const [totalPage, setTotalPage] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [idMovie, setIdMovie] = useState(null);
 
   useEffect(() => {
     const consultAPI = async () => {
-      const url = `https://api.themoviedb.org/3/movie/popular?api_key=187a4dd9fcb912ed459990053e6266b8&page=${page}`;
+      const url = `https://api.themoviedb.org/3/movie/popular?api_key=187a4dd9fcb912ed459990053e6266b8&page=${page}&language=en-ES`;
 
       const results = await axios.get(url);
       
       setTotalPage(results.data.total_pages);
       setMovies(results.data.results);
-
-      document.querySelector('#jumbotron').scrollIntoView({
-        behavior: "smooth"
-      });
     };
-
+    
     consultAPI();
+    
+    window.scrollTo({ behavior: 'smooth', top: '0px' });
   }, [page]);
 
   return (
-    <div className="container">
-      <div className="jumbotron jumbotron-fluid mt-4" id="jumbotron">
-        <div className="container text-center">
+    <Fragment>
+      <NavBar />
+      <div className="container">
+        <div className="h-100 p-5 text-white bg-primary text-center my-4" id="jumbotron">
           <h1 className="display-4">Popular Movies</h1>
           <p className="lead">Mantente actualizado con las películas que son tendencia en la industria del cine.</p>
         </div>
+        <Movies 
+          movies = { movies }
+        />
+        <Pagination 
+          setPage = { setPage }
+          page = { page }
+          totalPage = { totalPage }
+        />
       </div>
-      <Movies 
-        movies = { movies }
-        setShowModal = { setShowModal }
-        setIdMovie = { setIdMovie }
-      />
-      <Pagination 
-        setPage = { setPage }
-        page = { page }
-        totalPage = { totalPage }
-      />
-      {
-        showModal
-        ? 
-          <Modal 
-            idMovie = { idMovie }
-            setShowModal = { setShowModal }
-            setIdMovie = { setIdMovie }
-          />
-        :
-          null
-      }
-    </div>
+    </Fragment>
   );
 }
 
