@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Pagination = ({ setPage, page, totalPage }) => {
+const Pagination = ({ setPage, page, totalPage, setLoading }) => {
 
     const nextPage = () => {
         if (page < totalPage) setPage(page + 1);
+        setLoading(true);
     }
-
+    
     const previousPage = () => {
         if (page > 1) setPage(page - 1);
+        setLoading(true);
     }
 
     return ( 

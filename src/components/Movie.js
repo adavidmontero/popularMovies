@@ -15,6 +15,7 @@ const Movie = ({ movie }) => {
                         className="img-fluid border border-secondary" 
                         alt={`${title}'s poster`}
                         style={{ cursor: 'pointer' }}
+                        loading="lazy"
                     />
             </div>
         </Link>

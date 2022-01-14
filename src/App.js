@@ -17,6 +17,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(parseInt(currentPage) || 1);
   const [totalPage, setTotalPage] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const consultAPI = async () => {
@@ -28,7 +29,9 @@ function App() {
       setMovies(results.data.results);
     };
     
-    consultAPI();
+    consultAPI().then(() => {
+      setLoading(false);
+    });
     
     window.scrollTo({ behavior: 'smooth', top: '0px' });
   }, [page]);
@@ -41,13 +44,24 @@ function App() {
           <h1 className="display-4">Popular Movies</h1>
           <p className="lead">Mantente actualizado con las películas que son tendencia en la industria del cine.</p>
         </div>
-        <Movies 
-          movies = { movies }
-        />
+        {
+          loading
+          ?
+            <div className="d-flex justify-content-center align-items-center mb-4">
+              <div className="spinner-border text-light" role="status">
+                  <span className="visually-hidden"></span>
+              </div>
+            </div>
+          :
+            <Movies 
+              movies = { movies }
+            />
+        }
         <Pagination 
           setPage = { setPage }
           page = { page }
           totalPage = { totalPage }
+          setLoading = { setLoading }
         />
       </div>
     </Fragment>
