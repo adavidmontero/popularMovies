@@ -37,3 +37,58 @@
 .main-actors .card-body .card-title {
     margin-bottom: .5rem;
 }
+
+.container-images {
+    position: relative;
+}
+
+.carousel-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #000000;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img {
+    max-width: 800px;
+    max-height: 450px;
+}
+
+.close-visor {
+    z-index: 3;
+}
+
+.controls {
+    z-index: 2;
+}
+
+.controls .btn {
+    box-shadow: none;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.568);
+}
+
+.controls .btn:hover {
+    color: white;
+}
+
+@media only screen and (max-width: 992px) {
+    .image-container img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .controls .btn {
+        background-color: black;
+        opacity: .5;
+    }
+}

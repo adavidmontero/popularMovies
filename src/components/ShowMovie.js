@@ -4,6 +4,7 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import Trailer from './Trailer';
 import Actors from './Actors';
+import Images from './Images';
 
 const ShowMovie = () => {
 
@@ -24,7 +25,7 @@ const ShowMovie = () => {
       
         consultAPI().then(() => {
             document.querySelector('#spinner').setAttribute('class', 'd-none justify-content-center align-items-center');
-            document.querySelector('#modal-content').setAttribute('class', 'container d-block');
+            document.querySelector('#movie-details').setAttribute('class', 'container d-block');
         });
     }, [idMovie]);
 
@@ -39,7 +40,7 @@ const ShowMovie = () => {
                         <span className="visually-hidden"></span>
                     </div>
                 </div>
-                <div className="container d-none" id="modal-content">
+                <div className="container d-none" id="movie-details">
                     <div className="row">
                         <div className="col-md-4 mb-2">
                             <img 
@@ -87,6 +88,10 @@ const ShowMovie = () => {
                     />
                     <Actors
                         idMovie = { idMovie }
+                    />
+                    <Images
+                        idMovie = { idMovie }
+                        title = { title }
                     />
                 </div>
             </div>
