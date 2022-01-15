@@ -3,6 +3,8 @@ import axios from 'axios';
 import Movies from './components/Movies';
 import NavBar from './components/NavBar';
 import Pagination from './components/Pagination';
+import Footer from './components/Footer';
+import ArrowUp from './components/ArrowUp';
 import './App.css';
 
 function App() {
@@ -64,6 +66,8 @@ function App() {
           setLoading = { setLoading }
         />
       </div>
+      <Footer />
+      <ArrowUp />
     </Fragment>
   );
 }

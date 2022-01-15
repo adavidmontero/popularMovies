@@ -5,6 +5,8 @@ import NavBar from './NavBar';
 import Trailer from './Trailer';
 import Actors from './Actors';
 import Images from './Images';
+import Footer from './Footer';
+import ArrowUp from './ArrowUp';
 
 const ShowMovie = () => {
 
@@ -25,7 +27,7 @@ const ShowMovie = () => {
       
         consultAPI().then(() => {
             document.querySelector('#spinner').setAttribute('class', 'd-none justify-content-center align-items-center');
-            document.querySelector('#movie-details').setAttribute('class', 'container d-block');
+            document.querySelector('#movie-details').setAttribute('class', 'd-block');
         });
     }, [idMovie]);
 
@@ -34,14 +36,14 @@ const ShowMovie = () => {
     return (
         <Fragment>
             <NavBar />
-            <div className="mt-4">
-                <div className="d-flex justify-content-center align-items-center" id="spinner">
-                    <div className="spinner-border text-light" role="status">
-                        <span className="visually-hidden"></span>
-                    </div>
+            <div className="d-flex justify-content-center align-items-center" id="spinner">
+                <div className="spinner-border text-light" role="status">
+                    <span className="visually-hidden"></span>
                 </div>
-                <div className="container d-none" id="movie-details">
-                    <div className="row">
+            </div>
+            <div className="d-none" id="movie-details">
+                <div className="container">
+                    <main className="row">
                         <div className="col-md-4 mb-2">
                             <img 
                                 className="img-fluid border border-secondary" 
@@ -81,7 +83,7 @@ const ShowMovie = () => {
                                 { production_companies ? production_companies.map(pc => pc.name).join(', ') : ''}
                             </p>
                         </div>
-                    </div>
+                    </main>
                     <Trailer
                         idMovie = { idMovie }
                         title = { title }
@@ -94,6 +96,8 @@ const ShowMovie = () => {
                         title = { title }
                     />
                 </div>
+                <Footer />
+                <ArrowUp />
             </div>
         </Fragment>
     );

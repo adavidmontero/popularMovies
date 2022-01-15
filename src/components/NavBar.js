@@ -7,8 +7,8 @@ const NavBar = () => {
     let location = useLocation();
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-primary bg-primary d-flex justify-content-between">
-            <Link className="navbar-brand" to="/">Popular Movies</Link>
+        <nav className="navbar navbar-expand-sm navbar-primary bg-primary d-flex justify-content-between mb-4">
+            <Link className="navbar-brand lead" to="/">Popular Movies</Link>
             {
                 !location.pathname.includes('/popular-movies')
                 ?

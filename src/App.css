@@ -57,16 +57,8 @@
 }
 
 .image-container img {
-    max-width: 800px;
-    max-height: 450px;
-}
-
-.close-visor {
-    z-index: 3;
-}
-
-.controls {
-    z-index: 2;
+    max-width: 1000px;
+    max-height: 550px;
 }
 
 .controls .btn {
@@ -78,6 +70,24 @@
 
 .controls .btn:hover {
     color: white;
+}
+
+.arrow-up {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.arrow-left {
+    position: fixed;
+    top: 45%;
+    left: 1rem;
+}
+
+.arrow-right {
+    position: fixed;
+    top: 45%;
+    right: 1rem;
 }
 
 @media only screen and (max-width: 992px) {

@@ -22,7 +22,9 @@ const Images = ({ idMovie, title }) => {
 
     useEffect(() => {
         const body = document.querySelector('body');
+        const arrowUp = document.querySelector('.arrow-up');
         body.style.overflow = isShowing ? 'hidden' : 'auto';
+        arrowUp.style.display = isShowing ? 'none' : 'block';
     }, [isShowing])
 
     const viewImage = (i) => {
@@ -45,6 +47,8 @@ const Images = ({ idMovie, title }) => {
             setCurrentImage(currentImage - 1);
         }
     }
+
+    if (images.length === 0) return null;
 
     return (
         <Fragment>
@@ -81,15 +85,13 @@ const Images = ({ idMovie, title }) => {
                                         onClick={ () => setIsShowing(false) }
                                     ></button>
                                 </div>
-                                <div className="controls fixed-top h-100">
-                                    <div className="d-flex justify-content-between align-items-center h-100 px-4">
-                                        <button className="btn" onClick={ previous }>
-                                            <svg className="icon-arrow" width="40" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
-                                        </button>
-                                        <button className="btn" onClick={ next }>
-                                            <svg className="icon-arrow" width="40" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-                                        </button>
-                                    </div>
+                                <div className="controls">
+                                    <button className="btn arrow-left" onClick={ previous }>
+                                        <svg className="icon-arrow" width="30" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+                                    </button>
+                                    <button className="btn arrow-right" onClick={ next }>
+                                        <svg className="icon-arrow" width="30" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                                    </button>
                                 </div>
                                 <img 
                                     className="img-fluid rounded border border-secondary" 
