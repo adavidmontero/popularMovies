@@ -1,10 +1,14 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
-import Movies from './components/Movies';
+//Componentes
 import NavBar from './components/NavBar';
+import Jumbotron from './components/Jumbotron';
+import Spinner from './components/Spinner';
+import Movies from './components/Movies';
 import Pagination from './components/Pagination';
 import Footer from './components/Footer';
 import ArrowUp from './components/ArrowUp';
+//Estilos
 import './App.css';
 
 function App() {
@@ -42,18 +46,11 @@ function App() {
     <Fragment>
       <NavBar />
       <div className="container">
-        <div className="h-100 p-5 text-white bg-primary text-center my-4" id="jumbotron">
-          <h1 className="display-4">Popular Movies</h1>
-          <p className="lead">Mantente actualizado con las películas que son tendencia en la industria del cine.</p>
-        </div>
+        <Jumbotron />
         {
           loading
           ?
-            <div className="d-flex justify-content-center align-items-center mb-4">
-              <div className="spinner-border text-light" role="status">
-                  <span className="visually-hidden"></span>
-              </div>
-            </div>
+            <Spinner />
           :
             <Movies 
               movies = { movies }

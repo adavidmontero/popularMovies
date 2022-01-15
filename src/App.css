@@ -90,6 +90,11 @@
     right: 1rem;
 }
 
+.personal-logo {
+    font-family: 'Damion', cursive;
+    font-size: 1.8rem;
+}
+
 @media only screen and (max-width: 992px) {
     .image-container img {
         width: 100%;
