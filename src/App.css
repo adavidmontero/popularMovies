@@ -49,9 +49,13 @@
     height: 100vh;
     width: 100%;
     background-color: #000000;
+    opacity: .75;
 }
 
 .image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 }
@@ -69,13 +73,18 @@
 }
 
 .controls .btn:hover {
-    color: white;
+    color: rgba(255, 255, 255, 1);
 }
 
 .arrow-up {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
+    transition: all 1s ease-in-out;
+}
+
+.away {
+    bottom: -1000rem;
 }
 
 .arrow-left {
@@ -88,6 +97,10 @@
     position: fixed;
     top: 45%;
     right: 1rem;
+}
+
+.btn-arrow-up {
+    padding: .5rem;
 }
 
 .personal-logo {
@@ -103,7 +116,10 @@
 
 @media only screen and (max-width: 768px) {
     .controls .btn {
-        background-color: black;
-        opacity: .5;
+        background-color: rgba(0, 0, 0, .5);
+    }
+
+    .controls .btn:hover {
+        background-color: rgba(0, 0, 0, .75);
     }
 }

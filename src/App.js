@@ -38,7 +38,7 @@ function App() {
     consultAPI().then(() => {
       setLoading(false);
     });
-    
+
     window.scrollTo({ behavior: 'smooth', top: '0px' });
   }, [page]);
 
