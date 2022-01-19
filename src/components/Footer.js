@@ -4,7 +4,10 @@ const Footer = () => {
     return (
         <footer className="bg-primary text-white d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center px-4 py-2 mt-2 border-top border-secondary">
             <div className="lead">
-                <Link to="/" className="me-2 text-decoration-none">
+                <Link 
+                    className="me-2 text-decoration-none"
+                    to="/" 
+                >
                     Popular Movies
                 </Link>
                 <span>© 2022</span>

@@ -22,7 +22,7 @@ function App() {
   //Creamos los estados
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(parseInt(currentPage) || 1);
-  const [totalPage, setTotalPage] = useState(null);
+  const [totalPage, setTotalPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -57,9 +57,9 @@ function App() {
             />
         }
         <Pagination 
-          setPage = { setPage }
           page = { page }
           totalPage = { totalPage }
+          setPage = { setPage }
           setLoading = { setLoading }
         />
       </div>

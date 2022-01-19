@@ -46,14 +46,14 @@ const ShowMovie = () => {
                     <div>
                         <div className="container">
                             <main className="row">
-                                <div className="col-md-4 mb-2">
+                                <div className="col-lg-4 mb-2">
                                     <img 
                                         className="img-fluid border border-secondary" 
                                         src={ `https://image.tmdb.org/t/p/w500${ poster_path }` } 
                                         alt={`${ title }'s poster`}
                                     />
                                 </div>
-                                <div className="col-md-8 text-white">
+                                <div className="col-lg-8 text-white">
                                     <div className="card-details">
                                         <small>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid-dots" width="18" height="18" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="5" cy="5" r="1" /><circle cx="12" cy="5" r="1" /><circle cx="19" cy="5" r="1" /><circle cx="5" cy="12" r="1" /><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /><circle cx="5" cy="19" r="1" /><circle cx="12" cy="19" r="1" /><circle cx="19" cy="19" r="1" /></svg>

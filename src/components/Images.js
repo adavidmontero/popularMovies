@@ -1,5 +1,6 @@
 import { useState, useEffect, Fragment } from "react";
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const Images = ({ idMovie, title }) => {
 
@@ -60,10 +61,9 @@ const Images = ({ idMovie, title }) => {
                         images.map((image, index) => (
                             <div className="col mb-3" key={ image.file_path }>
                                 <img 
+                                    className="img-fluid border border-secondary image-clickable" 
                                     src={ `https://image.tmdb.org/t/p/w500${ image.file_path }` } 
-                                    className="img-fluid border border-secondary" 
                                     alt={`${ title }'s`}
-                                    style={{ cursor: 'pointer' }}
                                     loading="lazy"
                                     onClick={ () => viewImage(index) }
                                 />
@@ -82,8 +82,8 @@ const Images = ({ idMovie, title }) => {
                             <div className="close-visor fixed-top d-flex justify-content-between p-2">
                                 <span>{ currentImage + 1 } de { images.length }</span>
                                 <button 
-                                    type="button" 
                                     className="btn-close btn-close-white" 
+                                    type="button" 
                                     aria-label="Close"
                                     onClick={ () => setIsShowing(false) }
                                 ></button>
@@ -110,5 +110,10 @@ const Images = ({ idMovie, title }) => {
         </Fragment>
     );
 }
+
+Images.propTypes = {
+    idMovie: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+};
  
 export default Images;

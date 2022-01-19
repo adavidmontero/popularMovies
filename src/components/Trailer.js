@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const Trailer = ({ idMovie, title }) => {
 
@@ -38,5 +39,10 @@ const Trailer = ({ idMovie, title }) => {
         </Fragment>           
     );
 }
+
+Trailer.propTypes = {
+    idMovie: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+};
  
 export default Trailer;

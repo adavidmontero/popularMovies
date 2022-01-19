@@ -1,5 +1,6 @@
 import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
+import PropTypes from 'prop-types';
 
 const Actors = ({ idMovie }) => {
 
@@ -29,8 +30,8 @@ const Actors = ({ idMovie }) => {
                             <div className="col mb-3" key={ cast.id }>
                                 <div className="card border border-secondary">
                                     <img 
-                                        src={ cast.profile_path ? `https://image.tmdb.org/t/p/w500${ cast.profile_path }` : 'https://via.placeholder.com/500x750' } 
                                         className="card-img-top" 
+                                        src={ cast.profile_path ? `https://image.tmdb.org/t/p/w500${ cast.profile_path }` : 'https://via.placeholder.com/500x750' } 
                                         alt={`${ cast.name }'s profile`}
                                     />
                                     <div className="card-body bg-light text-primary text-center border-top border-secondary">
@@ -46,5 +47,9 @@ const Actors = ({ idMovie }) => {
         </Fragment>
     );
 }
+
+Actors.propTypes = {
+    idMovie: PropTypes.string.isRequired
+};
  
 export default Actors;
